@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/02 11:25:11 by yabdoul           #+#    #+#             */
+/*   Updated: 2024/05/02 14:58:53 by yabdoul          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef UTILS_H 
 #define UTILS_H 
 #endif
@@ -8,10 +20,11 @@
 #define BLUE    0x0000FF
 #define WHITE   0xFFFFFF
 #define BLACK   0x000000
+#define PSYCHEDELIC_COLOR_YELLOW 0XFFD700
 #define PSYCHEDELIC_COLOR 0xFF00FF
 #define MLX_ERR "[minilibx] error !please try Again"
 #define MLX_WINDOW_ERROR "[minilibx] : window error"
-#include <stdio.h>
+#include <stdlib.h>
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -29,6 +42,8 @@ typedef struct fractol
     char * type ;
     double x; 
     double y ;
+    double julia_const_x ; 
+    double julia_const_y ;
     t_data img ;
 } t_fractol ; 
 
@@ -45,5 +60,6 @@ t_complex add_complex(t_complex z1 , t_complex z2);
 void draw_fractol_pixel(t_fractol* fract , int x , int y);
 void draw_all_fractol(t_fractol *fract);
 void my_img_pixel_put(t_data *data, int x, int y, int color);
-void init_fract(t_fractol *fractol , char  *name);
+void init_fract(t_fractol *fractol , char  *name , double x  , double y);
 int ft_strcmp(char *  s1 , char * s2); 
+double ft_atof(const char *nptr) ; 
