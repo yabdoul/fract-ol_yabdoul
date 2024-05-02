@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:08 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/02 16:17:37 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/02 16:46:08 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 
 
 void init_fract(t_fractol *fractol , char  *name  , double x  , double y)
+
 {
+    if(!ft_strcmp(name,"julia") &&  !ft_strcmp(name,"mandelbort"))
+        exit(0) ;  
     fractol->type = name ;  
 	fractol->mlx_ptr = mlx_init();
 	fractol->mlx_window = mlx_new_window(fractol->mlx_ptr, HEIGHT, WIDTH, "Hello world!");
