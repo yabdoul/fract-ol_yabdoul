@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:15 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/02 16:43:11 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/03 13:46:03 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ int	main(int ac  ,  char  **  av )
         exit(0); 
     if(ac == 4)
     {
+        t_float* float_data;
         if(ft_strcmp(av[2],"") || ft_strcmp(av[3],""))
-        exit(0);
-        init_fract(fractol, av[1],ft_atof(av[2]),ft_atof(av[3]));
+        exit(0);   
+        init_fract(fractol, av[1],ft_atof(av[2],init_float_struct(float_data)),ft_atof(av[3],init_float_struct(float_data)));
     }
-    else
+    else if (ac == 2)
     {
           init_fract(fractol,av[1],0.4,0.4);  
     } 

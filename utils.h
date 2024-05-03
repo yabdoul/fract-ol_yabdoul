@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:11 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/02 14:58:53 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/03 13:56:20 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #define MLX_ERR "[minilibx] error !please try Again"
 #define MLX_WINDOW_ERROR "[minilibx] : window error"
 #include <stdlib.h>
+#include <math.h>
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -32,6 +33,13 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }				t_data;
+typedef  struct s_float {
+    double result ;
+    int sign ;
+    int i ;
+    int  decimal_point_seen ;
+    double decimal_multiplier ;
+}  t_float ;
 typedef struct fractol
 { 
     void* mlx_window; 
@@ -62,4 +70,7 @@ void draw_all_fractol(t_fractol *fract);
 void my_img_pixel_put(t_data *data, int x, int y, int color);
 void init_fract(t_fractol *fractol , char  *name , double x  , double y);
 int ft_strcmp(char *  s1 , char * s2); 
-double ft_atof(const char *nptr) ; 
+double ft_atof(char *nptr , t_float*float_data);
+char	*ft_strchr(const char *s, int c);
+t_float* init_float_struct(t_float * float_data);
+void check_is_degit(char * str); 
