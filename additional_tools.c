@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:49:15 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/05 11:33:21 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/05 11:43:35 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	check_is_degit(char *str)
 		i++;
 	}
 }
+
 double	color_scale_tool(double value, double old_max)
 {
 	return ((WHITE - BLACK) * (value - 0) / (old_max - 0) + WHITE);

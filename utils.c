@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:08 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/05 11:36:03 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/05 11:43:17 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ void	my_img_pixel_put(t_data *data, int x, int y, int color)
 
 void	draw_mandelbort_pixel(t_fractol *fract, int x, int y)
 {
-	int	i;
-	int	color;
-	t_complex z1, z2;
-	
+	int			i;
+	int			color;
+	t_complex	z1;
+	t_complex	z2;
+
 	color = WHITE;
 	z1.reel = 0.0;
 	z1.imagine = 0.0;
@@ -72,16 +73,17 @@ void	draw_mandelbort_pixel(t_fractol *fract, int x, int y)
 	}
 	my_img_pixel_put(&fract->img, x, y, PSYCHEDELIC_COLOR);
 }
-void	draw_julia_pixel(t_fractol *fract, int x, int y, double julia_const_x,
-		double julia_const_y)
+
+void	draw_julia_pixel(t_fractol *fract, int x, int y)
 {
-	int	i;
-	int	color;
+	int			i;
+	int			color;
+	t_complex	z1;
+	t_complex	z2;
 
 	color = WHITE;
-	t_complex z1, z2;
-	z2.reel = julia_const_x;
-	z2.imagine = julia_const_y;
+	z2.reel = fract->julia_const_x;
+	z2.imagine = fract->julia_const_y;
 	z1.reel = (my_scale_tool(x, -2, 2, WIDTH) * fract->zoom) + fract->x;
 	z1.imagine = (my_scale_tool(y, 2, -2, HEIGHT) * fract->zoom) + fract->y;
 	i = 1;
@@ -98,9 +100,12 @@ void	draw_julia_pixel(t_fractol *fract, int x, int y, double julia_const_x,
 	}
 	my_img_pixel_put(&fract->img, x, y, PSYCHEDELIC_COLOR);
 }
+
 void	draw_all_fractol(t_fractol *fractol)
 {
-	int x, y;
+	int	x;
+	int	y;
+
 	y = 0;
 	while (y < HEIGHT)
 	{
@@ -110,8 +115,7 @@ void	draw_all_fractol(t_fractol *fractol)
 			if (ft_strcmp(fractol->type, "mandelbort"))
 				draw_mandelbort_pixel(fractol, x, y);
 			else if (ft_strcmp(fractol->type, "julia"))
-				draw_julia_pixel(fractol, x, y, fractol->julia_const_x,
-					fractol->julia_const_y);
+				draw_julia_pixel(fractol, x, y);
 			x++;
 		}
 		y++;

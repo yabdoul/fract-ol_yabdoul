@@ -5,28 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/05 11:34:01 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/05 11:34:17 by yabdoul          ###   ########.fr       */
+/*   Created: 2024/05/05 11:44:15 by yabdoul           #+#    #+#             */
+/*   Updated: 2024/05/05 11:50:57 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef UTILS_H
 # define UTILS_H
-#endif
-#define WIDTH 800
-#define HEIGHT 800
-#define RED 0xFF0000
-#define GREEN 0x00FF00
-#define BLUE 0x0000FF
-#define WHITE 0xFFFFFF
-#define BLACK 0x000000
-#define PSYCHEDELIC_COLOR_YELLOW 0XFFD700
-#define PSYCHEDELIC_COLOR 0xFF00FF
-#define MLX_ERR "[minilibx] error !please try Again"
-#define MLX_WINDOW_ERROR "[minilibx] : window error"
-#include <math.h>
-#include <stdlib.h>
+
+# define WIDTH 800
+# define HEIGHT 800
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define WHITE 0xFFFFFF
+# define BLACK 0x000000
+# define PSYCHEDELIC_COLOR_YELLOW 0XFFD700
+# define PSYCHEDELIC_COLOR 0xFF00FF
+# define MLX_ERR "[minilibx] error !please try Again"
+# define MLX_WINDOW_ERROR "[minilibx] : window error"
+# include <math.h>
+# include <stdlib.h>
 
 typedef struct s_data
 {
@@ -79,3 +78,4 @@ char		*ft_strchr(const char *s, int c);
 t_float		*init_float_struct(t_float *float_data);
 void		check_is_degit(char *str);
 double		color_scale_tool(double value, double old_max);
+#endif
