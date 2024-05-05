@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:08 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/05 11:43:17 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/05 19:40:27 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	init_fract(t_fractol *fractol, char *name, double x, double y)
 	fractol->img.addr = mlx_get_data_addr(fractol->img.img,
 			&fractol->img.bits_per_pixel, &fractol->img.line_length,
 			&fractol->img.endian);
-	fractol->max_itteration = 100;
+	fractol->max_itteration = 1000;
 	fractol->x = 0;
 	fractol->y = 0;
 	fractol->julia_const_x = x;
