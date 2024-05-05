@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:05 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/03 14:02:39 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/05 11:34:53 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_complex	add_complex(t_complex z1, t_complex z2)
 	result.reel = z1.reel + z2.reel;
 	return (result);
 }
+
 t_complex	complex_square(t_complex z)
 {
 	t_complex	result;
@@ -30,11 +31,12 @@ t_complex	complex_square(t_complex z)
 }
 
 double	my_scale_tool(double value, double target_min, double target_max,
-		double old_min, double old_max)
+		double old_max)
 {
-	return ((target_max - target_min) * (value - old_min) / (old_max - old_min)
+	return ((target_max - target_min) * (value - 0) / (old_max - 0)
 		+ target_min);
 }
+
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -50,9 +52,10 @@ int	ft_strcmp(char *s1, char *s2)
 }
 
 double	ft_atof(char *nptr, t_float *float_data)
-{	
+{
 	check_is_degit(nptr);
-	if (ft_strchr(nptr, ' ') || ft_strchr(nptr, '\t') || ft_strchr(nptr, '\n')|| nptr[float_data->i] == '.')
+	if (ft_strchr(nptr, ' ') || ft_strchr(nptr, '\t') || ft_strchr(nptr, '\n')
+		|| nptr[float_data->i] == '.')
 		exit(0);
 	if (nptr[float_data->i] == '-' || nptr[float_data->i] == '+')
 		if (nptr[float_data->i++] == '-')

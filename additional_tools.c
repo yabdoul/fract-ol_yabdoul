@@ -6,11 +6,12 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 13:49:15 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/03 14:04:57 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/05 11:33:21 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
@@ -22,28 +23,37 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
-t_float* init_float_struct(t_float * float_data) 
+
+t_float	*init_float_struct(t_float *float_data)
 {
 	float_data->result = 0.000f;
-    float_data->sign = 1;
+	float_data->sign = 1;
 	float_data->i = 0;
-    float_data->decimal_point_seen = 0;
-    float_data->decimal_multiplier = 0.1f;
-	return  float_data; 
+	float_data->decimal_point_seen = 0;
+	float_data->decimal_multiplier = 0.1f;
+	return (float_data);
 }
+
 int	ft_isdigit(int c)
 {
-	return ((c >= '0' && c <= '9') || (c == '.' || c == '-')) ;
+	return ((c >= '0' && c <= '9') || (c == '.' || c == '-'));
 }
-void check_is_degit(char * str)
+
+void	check_is_degit(char *str)
 {
-	int i  = 0 ;
-	while(str[i]) 
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		if(!ft_isdigit(str[i]))
+		if (!ft_isdigit(str[i]))
 			exit(0);
-		if(str[i] == '-' && str[i+1] == '\0')
-			exit(0); 
-		i++; 		
+		if (str[i] == '-' && str[i + 1] == '\0')
+			exit(0);
+		i++;
 	}
-} 
+}
+double	color_scale_tool(double value, double old_max)
+{
+	return ((WHITE - BLACK) * (value - 0) / (old_max - 0) + WHITE);
+}

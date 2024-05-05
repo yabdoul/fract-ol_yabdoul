@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:08 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/03 13:48:43 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/05 11:36:03 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,20 @@ void	draw_mandelbort_pixel(t_fractol *fract, int x, int y)
 {
 	int	i;
 	int	color;
-
 	t_complex z1, z2;
+	
+	color = WHITE;
 	z1.reel = 0.0;
 	z1.imagine = 0.0;
-	z2.reel = (my_scale_tool(x, -2, 2, 0, WIDTH) * fract->zoom) + fract->x;
-	z2.imagine = (my_scale_tool(y, 2, -2, 0, HEIGHT) * fract->zoom) + fract->y;
+	z2.reel = (my_scale_tool(x, -2, 2, WIDTH) * fract->zoom) + fract->x;
+	z2.imagine = (my_scale_tool(y, 2, -2, HEIGHT) * fract->zoom) + fract->y;
 	i = 1;
 	while (i < fract->max_itteration)
 	{
 		z1 = add_complex(complex_square(z1), z2);
 		if ((z1.reel * z1.reel) + (z1.imagine * z1.imagine) > fract->over_value)
 		{
-			color = my_scale_tool(i, BLACK, WHITE, 0, fract->max_itteration);
+			color = color_scale_tool(i, fract->max_itteration);
 			my_img_pixel_put(&fract->img, x, y, color);
 			return ;
 		}
@@ -77,24 +78,25 @@ void	draw_julia_pixel(t_fractol *fract, int x, int y, double julia_const_x,
 	int	i;
 	int	color;
 
+	color = WHITE;
 	t_complex z1, z2;
 	z2.reel = julia_const_x;
 	z2.imagine = julia_const_y;
-	z1.reel = (my_scale_tool(x, -2, 2, 0, WIDTH) * fract->zoom) + fract->x;
-	z1.imagine = (my_scale_tool(y, 2, -2, 0, HEIGHT) * fract->zoom) + fract->y;
+	z1.reel = (my_scale_tool(x, -2, 2, WIDTH) * fract->zoom) + fract->x;
+	z1.imagine = (my_scale_tool(y, 2, -2, HEIGHT) * fract->zoom) + fract->y;
 	i = 1;
 	while (i < fract->max_itteration)
 	{
 		z1 = add_complex(complex_square(z1), z2);
 		if ((z1.reel * z1.reel) + (z1.imagine * z1.imagine) > fract->over_value)
 		{
-			color = my_scale_tool(i, BLUE, BLACK, 0, fract->max_itteration);
+			color = color_scale_tool(i, fract->max_itteration);
 			my_img_pixel_put(&fract->img, x, y, color);
 			return ;
 		}
 		i++;
 	}
-	my_img_pixel_put(&fract->img, x, y, PSYCHEDELIC_COLOR_YELLOW);
+	my_img_pixel_put(&fract->img, x, y, PSYCHEDELIC_COLOR);
 }
 void	draw_all_fractol(t_fractol *fractol)
 {
