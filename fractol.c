@@ -6,7 +6,7 @@
 /*   By: yabdoul <yabdoul@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:25:15 by yabdoul           #+#    #+#             */
-/*   Updated: 2024/05/03 14:58:01 by yabdoul          ###   ########.fr       */
+/*   Updated: 2024/05/07 13:08:26 by yabdoul          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	handle_keypress(int keysym, t_fractol *fractol)
 
 int	handle_mouse_move(int keysym, int x, int y, t_fractol *fractol)
 {
+	(void)x;
+	(void)y;
 	if (keysym == 5)
 		fractol->zoom *= 1.1;
 	if (keysym == 4)
@@ -47,10 +49,10 @@ int	handle_mouse_move(int keysym, int x, int y, t_fractol *fractol)
 
 int	main(int ac, char **av)
 {
-	t_data		img;
 	t_fractol	*fractol;
 	t_float		*float_data;
 
+	float_data = NULL;
 	if (ac < 2 || (ft_strcmp(av[1], "mandelbort") && ac > 2))
 		return (0);
 	fractol = (t_fractol *)malloc(sizeof(t_fractol));
